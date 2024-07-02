@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-white text-neutral-800 selection:bg-sky-100 selection:text-neutral-800 !scroll-smooth scroll-pt-[76px] md:scroll-pt-[72px] xl:scroll-pt-[76px];
+  }
+
+  main {
+    @apply mt-[76px] md:mt-[68px] xl:mt-[76px];
+  }
+  
+  br {
+    @apply max-sm:hidden;
+  }
+}
+
+@layer components {
+  #navbar .navbar-nav .nav-link {
+    @apply block max-md:border-b-2 md:border-2 border-neutral-200 hover:border-neutral-400 md:rounded-full text-lg md:max-xl:text-xs xl:text-sm text-left md:text-center font-bold whitespace-nowrap px-8 md:px-4 xl:px-8 py-2.5 md:py-2 xl:py-2.5 md:active:scale-95 transition-[border-color,transform];
+  }
+
+  .title-icon {
+    @apply inline-block rounded-full text-[24px] lg:text-[48px] mx-2 p-2 lg:p-3;
+  }
+
+  .title-icon.title-icon-sm {
+    @apply text-[24px] md:text-[32px] sm:p-2;
+  }
+
+  .shape-outline {
+    @apply relative before:absolute before:bg-outline before:bg-contain before:bg-center before:bg-no-repeat before:-inset-6 before:lg:-inset-12 before:opacity-25 before:-z-10;
+  }
+
+  .shape-underline {
+    @apply relative before:absolute before:bg-underline before:bg-contain before:bg-top before:bg-no-repeat before:-inset-x-3 before:top-full before:h-5 before:-z-10;
+  }
+
+  .video-wrapper {
+    @apply relative w-full h-full;
+  }
+
+  .video-button {
+    @apply absolute drop-shadow rounded-full active:scale-95 p-4 bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 translate-y-0 transition-[bottom,transform] ease-in-out duration-[400ms];
+  }
+
+  .video-wrapper[data-state="pause"] .video-button {
+    @apply !bottom-1/2 translate-y-1/2;
+  }
+
+  .video-button .video-icon {
+    @apply block text-[20px] transition-[transform,opacity] ease-in-out duration-200;
+  }
+
+  .video-button .video-icon.icon-pause {
+    @apply absolute inset-4 opacity-0 scale-50;
+  }
+
+  .video-wrapper[data-state="play"] .video-icon.icon-play {
+    @apply opacity-0 scale-50;
+  }
+
+  .video-wrapper[data-state="play"] .video-icon.icon-pause {
+    @apply opacity-100 scale-100;
+  }
+
+  .carousel-wrapper {
+    @apply flex flex-nowrap h-full transition-[transform] ease-in-out duration-[400ms];
+  }
+
+  .disclosure-item {
+    @apply flex flex-col gap-2 border-b-2 py-4 cursor-pointer;
+  }
+
+  .disclosure-item .disclosure-icon {
+    @apply block text-[24px] transition-[transform] ease-in-out duration-200;
+  }
+
+  .disclosure-item.active .disclosure-icon {
+    @apply -rotate-90;
+  }
+  
+  .disclosure-item .disclosure-content {
+    @apply text-sm text-neutral-500 font-semibold line-clamp-4 md:line-clamp-3 h-0 -mt-2 transition-[height,margin] ease-in-out duration-[400ms] overflow-hidden;
+  }
+
+  .disclosure-item.active .disclosure-content {
+    @apply h-[80px] md:h-[60px] mt-0;
+  }
+
+  .tab-button {
+    @apply border-2 border-transparent rounded-full text-xs md:text-sm font-semibold m-1 px-4 md:px-6 py-1.5 md:py-2 transition-[background,color] ease-[cubic-bezier(0.22,1,0.36,1)] duration-[400ms];
+  }
+  
+  .tab-content {
+    @apply hidden flex-wrap md:justify-center 2xl:w-2/3 lg:mx-auto max-lg:px-6 lg:max-2xl:px-12;
+  }
+
+  .tab-content.active {
+    @apply flex animate-slideIn;
+  }
+
+  .pagination-wrapper {
+    @apply flex justify-center items-center gap-2;
+  }
+
+  .pagination-button {
+    @apply flex justify-center items-center border-2 border-neutral-200 hover:border-neutral-400 active:scale-95 rounded-full text-sm text-neutral-500 font-semibold w-10 h-10 transition-[border-color,transform];
+  }
+
+  .pagination-button i {
+    @apply block text-[16px];
+  }
+
+  .gallery-item {
+    @apply relative flex-initial bg-neutral-50 sm:border border-neutral-100 sm:rounded-2xl lg:rounded-3xl sm:w-[10%] max-sm:h-16 transition-[width,height] ease-[cubic-bezier(0.22,1,0.36,1)] duration-[800ms] cursor-pointer overflow-hidden;
+  }
+
+  .gallery-item.active {
+    @apply sm:w-[80%] max-sm:h-48;
+  }
+
+  .gallery-item .gallery-image, .gallery-item .gallery-video {
+    @apply w-full h-full object-cover object-center;
+  }
+
+  .pswp-video {
+    @apply relative top-1/2 -translate-y-1/2 h-full mx-auto;
+  }
+
+  #footer .nav-link {
+    @apply relative text-xs text-neutral-400 hover:text-neutral-800 font-bold tracking-wider uppercase whitespace-nowrap after:absolute after:bg-list-picture after:bg-contain after:bg-center after:bg-no-repeat after:w-2.5 after:h-2.5 after:top-1/2 after:left-full after:ml-4 after:-translate-y-1/2 after:pointer-events-none transition-[color];
+  }
+}
+
+@layer utilities {
+  .autofill-none {
+    @apply autofill:shadow-[inset_0_0_0px_1000px_rgb(255,255,255)];
+  }
+
+  .btn-red { @apply bg-red-400 hover:bg-red-50 border-red-400 text-white hover:text-red-400; }
+  .btn-orange { @apply bg-orange-400 hover:bg-orange-50 border-orange-400 text-white hover:text-orange-400; }
+  .btn-amber { @apply bg-amber-400 hover:bg-amber-50 border-amber-400 text-white hover:text-amber-400; }
+  .btn-yellow { @apply bg-yellow-400 hover:bg-yellow-50 border-yellow-400 text-white hover:text-yellow-400; }
+  .btn-lime { @apply bg-lime-400 hover:bg-lime-50 border-lime-400 text-white hover:text-lime-400; }
+  .btn-green { @apply bg-green-400 hover:bg-green-50 border-green-400 text-white hover:text-green-400; }
+  .btn-emerald { @apply bg-emerald-400 hover:bg-emerald-50 border-emerald-400 text-white hover:text-emerald-400; }
+  .btn-teal { @apply bg-teal-400 hover:bg-teal-50 border-teal-400 text-white hover:text-teal-400; }
+  .btn-cyan { @apply bg-cyan-400 hover:bg-cyan-50 border-cyan-400 text-white hover:text-cyan-400; }
+  .btn-sky { @apply bg-sky-400 hover:bg-sky-50 border-sky-400 text-white hover:text-sky-400; }
+  .btn-blue { @apply bg-blue-400 hover:bg-blue-50 border-blue-400 text-white hover:text-blue-400; }
+  .btn-indigo { @apply bg-indigo-400 hover:bg-indigo-50 border-indigo-400 text-white hover:text-indigo-400; }
+  .btn-violet { @apply bg-violet-400 hover:bg-violet-50 border-violet-400 text-white hover:text-violet-400; }
+  .btn-purple { @apply bg-purple-400 hover:bg-purple-50 border-purple-400 text-white hover:text-purple-400; }
+  .btn-fuchsia { @apply bg-fuchsia-400 hover:bg-fuchsia-50 border-fuchsia-400 text-white hover:text-fuchsia-400; }
+  .btn-pink { @apply bg-pink-400 hover:bg-pink-50 border-pink-400 text-white hover:text-pink-400; }
+  .btn-rose { @apply bg-rose-400 hover:bg-rose-50 border-rose-400 text-white hover:text-rose-400; }
+
+  .btn-outline-red { @apply bg-red-50 hover:bg-red-200 border-red-200 text-red-400 hover:text-white; }
+  .btn-outline-orange { @apply bg-orange-50 hover:bg-orange-200 border-orange-200 text-orange-400 hover:text-white; }
+  .btn-outline-amber { @apply bg-amber-50 hover:bg-amber-200 border-amber-200 text-amber-400 hover:text-white; }
+  .btn-outline-yellow { @apply bg-yellow-50 hover:bg-yellow-200 border-yellow-200 text-yellow-400 hover:text-white; }
+  .btn-outline-lime { @apply bg-lime-50 hover:bg-lime-200 border-lime-200 text-lime-400 hover:text-white; }
+  .btn-outline-green { @apply bg-green-50 hover:bg-green-200 border-green-200 text-green-400 hover:text-white; }
+  .btn-outline-emerald { @apply bg-emerald-50 hover:bg-emerald-200 border-emerald-200 text-emerald-400 hover:text-white; }
+  .btn-outline-teal { @apply bg-teal-50 hover:bg-teal-200 border-teal-200 text-teal-400 hover:text-white; }
+  .btn-outline-cyan { @apply bg-cyan-50 hover:bg-cyan-200 border-cyan-200 text-cyan-400 hover:text-white; }
+  .btn-outline-sky { @apply bg-sky-50 hover:bg-sky-200 border-sky-200 text-sky-400 hover:text-white; }
+  .btn-outline-blue { @apply bg-blue-50 hover:bg-blue-200 border-blue-200 text-blue-400 hover:text-white; }
+  .btn-outline-indigo { @apply bg-indigo-50 hover:bg-indigo-200 border-indigo-200 text-indigo-400 hover:text-white; }
+  .btn-outline-violet { @apply bg-violet-50 hover:bg-violet-200 border-violet-200 text-violet-400 hover:text-white; }
+  .btn-outline-purple { @apply bg-purple-50 hover:bg-purple-200 border-purple-200 text-purple-400 hover:text-white; }
+  .btn-outline-fuchsia { @apply bg-fuchsia-50 hover:bg-fuchsia-200 border-fuchsia-200 text-fuchsia-400 hover:text-white; }
+  .btn-outline-pink { @apply bg-pink-50 hover:bg-pink-200 border-pink-200 text-pink-400 hover:text-white; }
+  .btn-outline-rose { @apply bg-rose-50 hover:bg-rose-200 border-rose-200 text-rose-400 hover:text-white; }
+
+  .card-red { @apply from-red-50 to-red-100 border-red-100/50 [&_.card-list-item]:bg-red-50 [&_.card-list-item]:border-red-100; }
+  .card-orange { @apply from-orange-50 to-orange-100 border-orange-100/50 [&_.card-list-item]:bg-orange-50 [&_.card-list-item]:border-orange-100; }
+  .card-amber { @apply from-amber-50 to-amber-100 border-amber-100/50 [&_.card-list-item]:bg-amber-50 [&_.card-list-item]:border-amber-100; }
+  .card-yellow { @apply from-yellow-50 to-yellow-100 border-yellow-100/50 [&_.card-list-item]:bg-yellow-50 [&_.card-list-item]:border-yellow-100; }
+  .card-lime { @apply from-lime-50 to-lime-100 border-lime-100/50 [&_.card-list-item]:bg-lime-50 [&_.card-list-item]:border-lime-100; }
+  .card-green { @apply from-green-50 to-green-100 border-green-100/50 [&_.card-list-item]:bg-green-50 [&_.card-list-item]:border-green-100; }
+  .card-emerald { @apply from-emerald-50 to-emerald-100 border-emerald-100/50 [&_.card-list-item]:bg-emerald-50 [&_.card-list-item]:border-emerald-100; }
+  .card-teal { @apply from-teal-50 to-teal-100 border-teal-100/50 [&_.card-list-item]:bg-teal-50 [&_.card-list-item]:border-teal-100; }
+  .card-cyan { @apply from-cyan-50 to-cyan-100 border-cyan-100/50 [&_.card-list-item]:bg-cyan-50 [&_.card-list-item]:border-cyan-100; }
+  .card-sky { @apply from-sky-50 to-sky-100 border-sky-100/50 [&_.card-list-item]:bg-sky-50 [&_.card-list-item]:border-sky-100; }
+  .card-blue { @apply from-blue-50 to-blue-100 border-blue-100/50 [&_.card-list-item]:bg-blue-50 [&_.card-list-item]:border-blue-100; }
+  .card-indigo { @apply from-indigo-50 to-indigo-100 border-indigo-100/50 [&_.card-list-item]:bg-indigo-50 [&_.card-list-item]:border-indigo-100; }
+  .card-violet { @apply from-violet-50 to-violet-100 border-violet-100/50 [&_.card-list-item]:bg-violet-50 [&_.card-list-item]:border-violet-100; }
+  .card-purple { @apply from-purple-50 to-purple-100 border-purple-100/50 [&_.card-list-item]:bg-purple-50 [&_.card-list-item]:border-purple-100; }
+  .card-fuchsia { @apply from-fuchsia-50 to-fuchsia-100 border-fuchsia-100/50 [&_.card-list-item]:bg-fuchsia-50 [&_.card-list-item]:border-fuchsia-100; }
+  .card-pink { @apply from-pink-50 to-pink-100 border-pink-100/50 [&_.card-list-item]:bg-pink-50 [&_.card-list-item]:border-pink-100; }
+  .card-rose { @apply from-rose-50 to-rose-100 border-rose-100/50 [&_.card-list-item]:bg-rose-50 [&_.card-list-item]:border-rose-100; }
+
+  .card-red .disclosure-item { @apply border-red-200; }
+  .card-orange .disclosure-item { @apply border-orange-200; }
+  .card-amber .disclosure-item { @apply border-amber-200; }
+  .card-yellow .disclosure-item { @apply border-yellow-200; }
+  .card-lime .disclosure-item { @apply border-lime-200; }
+  .card-green .disclosure-item { @apply border-green-200; }
+  .card-emerald .disclosure-item { @apply border-emerald-200; }
+  .card-teal .disclosure-item { @apply border-teal-200; }
+  .card-cyan .disclosure-item { @apply border-cyan-200; }
+  .card-sky .disclosure-item { @apply border-sky-200; }
+  .card-blue .disclosure-item { @apply border-blue-200; }
+  .card-indigo .disclosure-item { @apply border-indigo-200; }
+  .card-violet .disclosure-item { @apply border-violet-200; }
+  .card-purple .disclosure-item { @apply border-purple-200; }
+  .card-fuchsia .disclosure-item { @apply border-fuchsia-200; }
+  .card-pink .disclosure-item { @apply border-pink-200; }
+  .card-rose .disclosure-item { @apply border-rose-200; }
+
+  .title-icon.icon-red { @apply bg-red-200; }
+  .title-icon.icon-orange { @apply bg-orange-200; }
+  .title-icon.icon-amber { @apply bg-amber-200; }
+  .title-icon.icon-yellow { @apply bg-yellow-200; }
+  .title-icon.icon-lime { @apply bg-lime-200; }
+  .title-icon.icon-green { @apply bg-green-200; }
+  .title-icon.icon-emerald { @apply bg-emerald-200; }
+  .title-icon.icon-teal { @apply bg-teal-200; }
+  .title-icon.icon-cyan { @apply bg-cyan-200; }
+  .title-icon.icon-sky { @apply bg-sky-200; }
+  .title-icon.icon-blue { @apply bg-blue-200; }
+  .title-icon.icon-indigo { @apply bg-indigo-200; }
+  .title-icon.icon-violet { @apply bg-violet-200; }
+  .title-icon.icon-purple { @apply bg-purple-200; }
+  .title-icon.icon-fuchsia { @apply bg-fuchsia-200; }
+  .title-icon.icon-pink { @apply bg-pink-200; }
+  .title-icon.icon-rose { @apply bg-rose-200; }
+
+  .duotone-icon-red, .tabs-red .tab-button.active, .pagination-red .page-numbers.current .pagination-button { @apply bg-red-100 border-red-200/50 text-red-400; }
+  .duotone-icon-orange, .tabs-orange .tab-button.active, .pagination-orange .page-numbers.current .pagination-button { @apply bg-orange-100 border-orange-200/50 text-orange-400; }
+  .duotone-icon-amber, .tabs-amber .tab-button.active, .pagination-amber .page-numbers.current .pagination-button { @apply bg-amber-100 border-amber-200/50 text-amber-400; }
+  .duotone-icon-yellow, .tabs-yellow .tab-button.active, .pagination-yellow .page-numbers.current .pagination-button { @apply bg-yellow-100 border-yellow-200/50 text-yellow-400; }
+  .duotone-icon-lime, .tabs-lime .tab-button.active, .pagination-lime .page-numbers.current .pagination-button { @apply bg-lime-100 border-lime-200/50 text-lime-400; }
+  .duotone-icon-green, .tabs-green .tab-button.active, .pagination-green .page-numbers.current .pagination-button { @apply bg-green-100 border-green-200/50 text-green-400; }
+  .duotone-icon-emerald, .tabs-emerald .tab-button.active, .pagination-emerald .page-numbers.current .pagination-button { @apply bg-emerald-100 border-emerald-200/50 text-emerald-400; }
+  .duotone-icon-teal, .tabs-teal .tab-button.active, .pagination-teal .page-numbers.current .pagination-button { @apply bg-teal-100 border-teal-200/50 text-teal-400; }
+  .duotone-icon-cyan, .tabs-cyan .tab-button.active, .pagination-cyan .page-numbers.current .pagination-button { @apply bg-cyan-100 border-cyan-200/50 text-cyan-400; }
+  .duotone-icon-sky, .tabs-sky .tab-button.active, .pagination-sky .page-numbers.current .pagination-button { @apply bg-sky-100 border-sky-200/50 text-sky-400; }
+  .duotone-icon-blue, .tabs-blue .tab-button.active, .pagination-blue .page-numbers.current .pagination-button { @apply bg-blue-100 border-blue-200/50 text-blue-400; }
+  .duotone-icon-indigo, .tabs-indigo .tab-button.active, .pagination-indigo .page-numbers.current .pagination-button { @apply bg-indigo-100 border-indigo-200/50 text-indigo-400; }
+  .duotone-icon-violet, .tabs-violet .tab-button.active, .pagination-violet .page-numbers.current .pagination-button { @apply bg-violet-100 border-violet-200/50 text-violet-400; }
+  .duotone-icon-purple, .tabs-purple .tab-button.active, .pagination-purple .page-numbers.current .pagination-button { @apply bg-purple-100 border-purple-200/50 text-purple-400; }
+  .duotone-icon-fuchsia, .tabs-fuchsia .tab-button.active, .pagination-fuchsia .page-numbers.current .pagination-button { @apply bg-fuchsia-100 border-fuchsia-200/50 text-fuchsia-400; }
+  .duotone-icon-pink, .tabs-pink .tab-button.active, .pagination-pink .page-numbers.current .pagination-button { @apply bg-pink-100 border-pink-200/50 text-pink-400; }
+  .duotone-icon-rose, .tabs-rose .tab-button.active, .pagination-rose .page-numbers.current .pagination-button { @apply bg-rose-100 border-rose-200/50 text-rose-400; }
+
+  .input-red { @apply border-red-100 focus:ring-red-100; }
+  .input-orange { @apply border-orange-100 focus:ring-orange-100; }
+  .input-amber { @apply border-amber-100 focus:ring-amber-100; }
+  .input-yellow { @apply border-yellow-100 focus:ring-yellow-100; }
+  .input-lime { @apply border-lime-100 focus:ring-lime-100; }
+  .input-green { @apply border-green-100 focus:ring-green-100; }
+  .input-emerald { @apply border-emerald-100 focus:ring-emerald-100; }
+  .input-teal { @apply border-teal-100 focus:ring-teal-100; }
+  .input-cyan { @apply border-cyan-100 focus:ring-cyan-100; }
+  .input-sky { @apply border-sky-100 focus:ring-sky-100; }
+  .input-blue { @apply border-blue-100 focus:ring-blue-100; }
+  .input-indigo { @apply border-indigo-100 focus:ring-indigo-100; }
+  .input-violet { @apply border-violet-100 focus:ring-violet-100; }
+  .input-purple { @apply border-purple-100 focus:ring-purple-100; }
+  .input-fuchsia { @apply border-fuchsia-100 focus:ring-fuchsia-100; }
+  .input-pink { @apply border-pink-100 focus:ring-pink-100; }
+  .input-rose { @apply border-rose-100 focus:ring-rose-100; }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "staccato-education-center-theme",
+  "version": "1.0.0",
+  "description": "Wordpress тема освітнього центру Staccato",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/css/globals.css -o ./css/globals.css --watch"
+  },
+  "author": "Akhtem Aliiev <akhtem.aliiev@gmail.com> (https://github.com/aucepam)",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}

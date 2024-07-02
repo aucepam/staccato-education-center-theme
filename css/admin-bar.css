@@ -1,0 +1,24 @@
+@media (min-width: 782px) {
+  #navbar { top: 32px; }
+}
+
+@media (min-width: 600px) and (max-width: 782px) {
+  #navbar { top: 46px; }
+}
+
+@media (min-width: 600px) {
+  html { scroll-padding-top: 122px; }
+}
+
+@media (min-width: 768px) {
+  html { scroll-padding-top: 118px; }
+}
+
+@media (min-width: 1280px) {
+  html { scroll-padding-top: 108px; }
+}
+
+@media (max-width: 600px) {
+  #navbar { position: sticky; top: 0; }
+  main { margin-top: 0; }
+}
